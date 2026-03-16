@@ -31,7 +31,8 @@ const app = new Vue({
         renglon: '',
         contabilidad: '',
         periodo: '',
-        frame: ''
+        frame: '',
+        currentYear: new Date().getFullYear()
     },
     methods: {
         // Actualizar QR cuando cambia algún campo
