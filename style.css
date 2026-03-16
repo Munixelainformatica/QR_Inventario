@@ -1,0 +1,344 @@
+:root {
+    --bg: #f4f7fb;
+    --bg-accent: #dfe9f5;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --primary: #1a7f72;
+    --primary-dark: #145f56;
+    --border: #e5e7eb;
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --capture-w: 520px;
+    --capture-h: 648px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', 'Segoe UI', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(800px 400px at 15% 10%, #e9f6f2 0%, transparent 60%),
+        radial-gradient(700px 380px at 85% 0%, #eaf0fb 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, #f8fafc 100%);
+    min-height: 100vh;
+    padding: 28px;
+}
+
+.app-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    background: #ffffff;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5bb7a8;
+    box-shadow: 0 0 0 3px rgba(26, 127, 114, 0.12);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.help {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.2px;
+}
+
+.btn-round {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-round .icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(26, 127, 114, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    background: var(--primary-dark);
+}
+
+.btn-ghost {
+    background: #ffffff;
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.btn-ghost:hover {
+    background: #f1f5f9;
+}
+
+.description-box {
+    margin-top: 18px;
+    background: #f8fafc;
+    border: 1px dashed #d4dde7;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.description-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+}
+
+.description-text {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.preview-section {
+    text-align: center;
+}
+
+.preview-stage {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    overflow: visible;
+}
+
+.marco {
+    position: relative;
+    width: var(--capture-w);
+    height: var(--capture-h);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+    background: #0f172a;
+}
+
+.fondo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.codigo {
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    width: 468px;
+    height: 468px;
+    object-fit: contain;
+    z-index: 2;
+}
+
+.codigo-texto {
+    color: #ffffff;
+    position: absolute;
+    top: 540px;
+    left: 120px;
+    font-family: 'Big Shoulders Text', cursive;
+    font-size: 58px;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+    z-index: 3;
+}
+
+.logotipo {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    z-index: 2;
+}
+
+.controlhtml {
+    width: 100%;
+}
+
+@media (max-width: 980px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-stage {
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .preview-stage {
+        transform: scale(0.72);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 420px) {
+    .preview-stage {
+        transform: scale(0.62);
+    }
+}
+
+
+
+@media (max-width: 640px) {
+    .header-actions {
+        width: auto;
+        justify-content: flex-start;
+    }
+
+    .header-actions .btn {
+        flex: 0 0 auto;
+        min-width: 44px;
+    }
+}
+
