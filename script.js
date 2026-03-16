@@ -42,11 +42,16 @@ const app = new Vue({
 
         // Actualizar imagen de fondo con el período
         updateFrameImage() {
-            if (this.periodo) {
+            const validImages = ['2026', '2027', '2028', '2029', '2030'];
+            if (this.periodo && validImages.includes(this.periodo)) {
                 const frameImage = `images/${this.periodo}.png`;
                 document.getElementById('base').src = frameImage;
                 this.frame = frameImage;
+            } else if (this.periodo === '') {
+                // Si se limpia, vuelve a la imagen por defecto
+                document.getElementById('base').src = 'images/2026.png';
             }
+            // Si no es válido, ignora el cambio (evita el 404)
         },
 
         // Generar y actualizar el código QR
@@ -100,7 +105,7 @@ const app = new Vue({
             this.frame = '';
             
             // Limpiar imágenes
-            document.getElementById('base').src = 'images/Frame_01.png';
+            document.getElementById('base').src = 'images/2026.png';
             document.querySelector('.qr-code').src = '';
             
             // Enfocar el primer campo
