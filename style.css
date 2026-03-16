@@ -342,3 +342,16 @@ textarea {
     }
 }
 
+.app-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: black;
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+}
+
+.app-footer p {
+    margin: 0;
+}
+
