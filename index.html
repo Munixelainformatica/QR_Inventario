@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>QR Generador - Municipalidad de Quetzaltenango</title>
+</head>
+
+<body>
+    <div id="app" class="app-shell">
+        <header class="app-header">
+            <div class="title">
+                <img src="images/escudo.png" alt="Escudo de Guatemala">
+                <div>
+                    <h2>Generador QR</h2>
+                    <p class="subtitle">Completa los datos y descarga el QR listo para impresión.</p>
+                </div>
+            </div>
+            <div class="button-group header-actions">
+                <button class="btn btn-round btn-primary" @click="generarQR()" aria-label="Descargar QR" title="Descargar QR">
+                    <span class="icon">⬇️</span>
+                    <span class="sr-only">Descargar QR</span>
+                </button>
+                <button class="btn btn-round btn-ghost" @click="limpiarFormulario()" aria-label="Limpiar" title="Limpiar">
+                    <span class="icon">🧹</span>
+                    <span class="sr-only">Limpiar</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="form-section card">
+                <h3>Datos del bien</h3>
+                <div class="form-grid">
+                    <div class="form-group field">
+                        <label for="Periodo">Período</label>
+                        <input class="controlhtml" id="Periodo" type="text" placeholder="Ej: 2024-Q1" v-model="periodo">
+                        <small class="help">Usa el período oficial del expediente.</small>
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="DependenciaId">Dependencia</label>
+                        <input class="controlhtml" id="DependenciaId" type="text" placeholder="Ej: Tesorería" v-model="dependencia">
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="CodigoId">Código Municipal</label>
+                        <input class="controlhtml" id="CodigoId" type="text" placeholder="Ej: MUN-2024-001" v-model="codigo">
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="Valor">Valor</label>
+                        <input class="controlhtml" id="Valor" type="text" placeholder="Ej: Q 10,000.00" v-model="valor">
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="Expediente">Expediente</label>
+                        <input class="controlhtml" id="Expediente" type="text" placeholder="Ej: EXP-2024-5678" v-model="expediente">
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="Renglon">Renglón</label>
+                        <input class="controlhtml" id="Renglon" type="text" placeholder="Ej: 4100" v-model="renglon">
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="Contabilidad">Contabilidad</label>
+                        <input class="controlhtml" id="Contabilidad" type="text" placeholder="Ej: Activo Fijo" v-model="contabilidad">
+                    </div>
+
+                    <div class="form-group field full">
+                        <label for="_descripcion">Descripción</label>
+                        <textarea class="controlhtml" id="_descripcion" placeholder="Describe el bien municipal..." v-model="ddescripcion"></textarea>
+                    </div>
+                </div>
+
+                <div class="description-box">
+                    <p class="description-title">Descripción completa</p>
+                    <p class="description-text">{{ midescripcion }}</p>
+                </div>
+            </section>
+
+            <section class="preview-section card">
+                <div class="preview-header">
+                    <h3>Vista previa</h3>
+                    <p class="help">Se actualiza automáticamente al escribir.</p>
+                </div>
+                <div class="preview-stage">
+                    <div id="capture" class="marco">
+                        <img id="base" alt="Frame" class="fondo" src="images/2026.png">
+                        <img alt="QR" class="codigo qr-code" src="">
+                        <img src="images/Logo_Quetgo_02_Round.png" alt="Logotipo" class="logotipo">
+                        <p class="codigo-texto">{{ codigo }}</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="app-footer">
+            <p>Gerencia de Informática - {{ currentYear }}</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
